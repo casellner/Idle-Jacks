@@ -2,10 +2,10 @@ extends Node2D
 
 var mynode = preload("res://jack.tscn")
 
-# Random number for Jack position
-var rand = RandomNumberGenerator.new()
-
+var rand = RandomNumberGenerator.new() # Random number for Jack position
 var jack_instance : Node = null
+
+var score = 0 # Number of jacks collected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			$Ball.jump = true # tell ball to jump
 			spawn_jack() #spawn a jack
+			score_jack() #TODO: call this when a jack is clicked
 
 # Function: spawn_jack()
 # Purpose:  This function instantiates a jack and gives it a random position
@@ -35,3 +36,8 @@ func spawn_jack():
 	jack_instance = mynode.instantiate()
 	jack_instance.position = Vector2(x, y)
 	add_child(jack_instance)
+
+func score_jack():
+	score += 1
+	$Score.clear()
+	$Score.add_text(str(score))
