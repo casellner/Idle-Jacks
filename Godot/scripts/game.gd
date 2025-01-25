@@ -1,6 +1,6 @@
 extends Node2D
 
-var mynode = preload("res://jack.tscn")
+var mynode = preload("res://jack.tscn") # for spawning jacks
 
 var rand = RandomNumberGenerator.new() # Random number for Jack position
 var jack_instance
@@ -35,12 +35,14 @@ func spawn_jack():
 	var y = rand.randf_range(90, 870) # 960 - 90
 	
 	jack_instance = mynode.instantiate()
-	jack_instance.position = Vector2(x, y)
-	jack_instance.rotation = randf_range(0, 2 * PI)
+	jack_instance.position = Vector2(x, y) # set random position
+	jack_instance.rotation = randf_range(0, 2 * PI) #set random rotation
 	add_child(jack_instance)
 	jack_instance.connect("jack_clicked", Callable(self, "score_jack"))
 	
 
+# Function: score_jack()
+# Purpose:  This function updates the score and plays the 'jack collected' audio
 func score_jack():
 	jack_instance = null # Prevents game from crashing
 	score += 1
@@ -52,12 +54,9 @@ func score_jack():
 	$AudioStreamPlayer2D.play()
 
 
+# Function: _on_ball_ball_clicked()
+# Purpose:  This function determines if the ball should jump and sends an instruction to the ball
 func _on_ball_ball_clicked() -> void:
 	if $Ball.is_on_floor():
-		# delete any jacks
-		if jack_instance:
-			jack_instance.queue_free()
-			jack_instance = null
-
 		$Ball.jump = true # tell ball to jump
 		spawn_jack() #spawn a jack
