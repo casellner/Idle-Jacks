@@ -15,15 +15,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-	
-	# Debugging code to bounce ball by pressing space bar
 	# if ball is on the ground
-	#if $Ball.is_on_floor():
-	#	# delete any jacks
-	#	if jack_instance:
-	#		jack_instance.queue_free()
-	#		jack_instance = null
+	if $Ball.is_on_floor():
+		# delete any jacks
+		if jack_instance:
+			jack_instance.queue_free()
+			jack_instance = null
+
+	# Debugging code to bounce ball by pressing space bar
 	#	# if ball is clicked
 	#	if Input.is_action_just_pressed("ui_accept"):
 	#		$Ball.jump = true # tell ball to jump
