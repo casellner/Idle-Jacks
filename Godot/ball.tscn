@@ -9,10 +9,14 @@ size = Vector2(256, 256)
 [node name="Ball" type="CharacterBody2D"]
 script = ExtResource("1_wrwq6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -128)
-texture = ExtResource("1_jj2hf")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -128)
 shape = SubResource("RectangleShape2D_s82iy")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -128.0
+offset_top = -256.0
+offset_right = 128.0
+texture_normal = ExtResource("1_jj2hf")
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
