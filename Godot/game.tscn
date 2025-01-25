@@ -1,24 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dltk7wadcodli"]
+[gd_scene load_steps=5 format=3 uid="uid://dltk7wadcodli"]
 
 [ext_resource type="PackedScene" uid="uid://q54hxsydl8vl" path="res://ball.tscn" id="1_3fcaw"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_mj0j3"]
+[ext_resource type="Texture2D" uid="uid://lhtm352eusx5" path="res://sprites/background.png" id="3_ln215"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x2bm8"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ku4j4"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_mj0j3")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(270, 480)
+texture = ExtResource("3_ln215")
 
 [node name="Ball" parent="." instance=ExtResource("1_3fcaw")]
 position = Vector2(164, 297)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(163, 604)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("WorldBoundaryShape2D_x2bm8")
+position = Vector2(270, 480)
 
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = 51.0
@@ -30,5 +29,11 @@ text = "0"
 offset_right = 59.0
 offset_bottom = 40.0
 text = "Score:"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(270, 900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ku4j4")
 
 [connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]
