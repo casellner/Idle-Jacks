@@ -20,7 +20,7 @@ position = Vector2(270, 480)
 texture = ExtResource("3_ln215")
 
 [node name="Ball" parent="." instance=ExtResource("1_3fcaw")]
-position = Vector2(164, 297)
+position = Vector2(270, 300)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(270, 480)
