@@ -12,6 +12,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_texture_button_button_down() -> void:
+func _on_texture_button_button_up() -> void:
 	queue_free()
 	emit_signal("jack_clicked")
