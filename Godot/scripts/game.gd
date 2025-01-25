@@ -48,6 +48,8 @@ func score_jack():
 	# update text label
 	$Score.clear()
 	$Score.add_text(str(score))
+	
+	$AudioStreamPlayer2D.play()
 
 
 func _on_ball_ball_clicked() -> void:

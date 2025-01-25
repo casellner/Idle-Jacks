@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dltk7wadcodli"]
+[gd_scene load_steps=9 format=3 uid="uid://dltk7wadcodli"]
 
 [ext_resource type="PackedScene" uid="uid://q54hxsydl8vl" path="res://ball.tscn" id="1_3fcaw"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_mj0j3"]
 [ext_resource type="Texture2D" uid="uid://bx65yr7cnajqw" path="res://sprites/ground.png" id="3_0ancq"]
 [ext_resource type="Texture2D" uid="uid://lhtm352eusx5" path="res://sprites/background.png" id="3_ln215"]
+[ext_resource type="AudioStream" uid="uid://belr237ttqwlf" path="res://audio/jack.mp3" id="5_whfy3"]
 
 [sub_resource type="Theme" id="Theme_ql8bq"]
 default_font_size = 30
@@ -51,5 +52,8 @@ position = Vector2(270, 900)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_ku4j4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_whfy3")
 
 [connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]
