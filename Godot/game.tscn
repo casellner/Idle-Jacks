@@ -29,3 +29,5 @@ offset_bottom = 40.0
 offset_right = 59.0
 offset_bottom = 40.0
 text = "Score:"
+
+[connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]

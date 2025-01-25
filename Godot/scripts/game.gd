@@ -39,7 +39,22 @@ func spawn_jack():
 	
 
 func score_jack():
-	jack_instance = null
+	jack_instance = null # Prevents game from crashing
 	score += 1
+	
+	# update text label
 	$Score.clear()
 	$Score.add_text(str(score))
+
+
+func _on_ball_ball_clicked() -> void:
+	print("ball2")
+	if $Ball.is_on_floor():
+		# delete any jacks
+		if jack_instance:
+			jack_instance.queue_free()
+			jack_instance = null
+
+		print("ball3")
+		$Ball.jump = true # tell ball to jump
+		spawn_jack() #spawn a jack
