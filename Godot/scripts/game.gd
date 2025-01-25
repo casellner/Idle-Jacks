@@ -3,7 +3,7 @@ extends Node2D
 var mynode = preload("res://jack.tscn")
 
 var rand = RandomNumberGenerator.new() # Random number for Jack position
-var jack_instance : Node = null
+var jack_instance
 
 var score = 0 # Number of jacks collected
 
