@@ -22,5 +22,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_texture_button_button_down() -> void:
+func _on_texture_button_button_up() -> void:
 	emit_signal("ball_clicked")
