@@ -31,8 +31,8 @@ func _process(delta: float) -> void:
 # Function: spawn_jack()
 # Purpose:  This function instantiates a jack and gives it a random position
 func spawn_jack():
-	var x = rand.randf_range(0, 300)
-	var y = rand.randf_range(0, 300)
+	var x = rand.randf_range(0, 284) # 540 - 256
+	var y = rand.randf_range(0, 704) # 960 - 256
 	
 	jack_instance = mynode.instantiate()
 	jack_instance.position = Vector2(x, y)
