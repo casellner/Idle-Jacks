@@ -21,6 +21,10 @@ window/size/viewport_width=540
 window/size/viewport_height=960
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom_font="res://Fredoka-Regular.ttf"
+
 [rendering]
 
 renderer/rendering_method="mobile"
