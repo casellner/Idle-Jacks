@@ -24,6 +24,7 @@ shape = SubResource("WorldBoundaryShape2D_x2bm8")
 offset_left = 51.0
 offset_right = 91.0
 offset_bottom = 40.0
+text = "0"
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 offset_right = 59.0
