@@ -36,6 +36,7 @@ func spawn_jack():
 	
 	jack_instance = mynode.instantiate()
 	jack_instance.position = Vector2(x, y)
+	jack_instance.rotation = randf_range(0, 2 * PI)
 	add_child(jack_instance)
 	jack_instance.connect("jack_clicked", Callable(self, "score_jack"))
 	
