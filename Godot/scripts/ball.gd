@@ -24,4 +24,3 @@ func _physics_process(delta):
 
 func _on_texture_button_button_down() -> void:
 	emit_signal("ball_clicked")
-	print("ball")

@@ -15,16 +15,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+	
+	# Debugging code to bounce ball by pressing space bar
 	# if ball is on the ground
-	if $Ball.is_on_floor():
-		# delete any jacks
-		if jack_instance:
-			jack_instance.queue_free()
-			jack_instance = null
-		# if ball is clicked
-		if Input.is_action_just_pressed("ui_accept"):
-			$Ball.jump = true # tell ball to jump
-			spawn_jack() #spawn a jack
+	#if $Ball.is_on_floor():
+	#	# delete any jacks
+	#	if jack_instance:
+	#		jack_instance.queue_free()
+	#		jack_instance = null
+	#	# if ball is clicked
+	#	if Input.is_action_just_pressed("ui_accept"):
+	#		$Ball.jump = true # tell ball to jump
+	#		spawn_jack() #spawn a jack
 
 # Function: spawn_jack()
 # Purpose:  This function instantiates a jack and gives it a random position
@@ -48,13 +51,11 @@ func score_jack():
 
 
 func _on_ball_ball_clicked() -> void:
-	print("ball2")
 	if $Ball.is_on_floor():
 		# delete any jacks
 		if jack_instance:
 			jack_instance.queue_free()
 			jack_instance = null
 
-		print("ball3")
 		$Ball.jump = true # tell ball to jump
 		spawn_jack() #spawn a jack
