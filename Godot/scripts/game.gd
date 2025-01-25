@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			$Ball.jump = true # tell ball to jump
 			spawn_jack() #spawn a jack
-			score_jack() #TODO: call this when a jack is clicked
 
 # Function: spawn_jack()
 # Purpose:  This function instantiates a jack and gives it a random position
@@ -36,8 +35,11 @@ func spawn_jack():
 	jack_instance = mynode.instantiate()
 	jack_instance.position = Vector2(x, y)
 	add_child(jack_instance)
+	jack_instance.connect("jack_clicked", Callable(self, "score_jack"))
+	
 
 func score_jack():
+	jack_instance = null
 	score += 1
 	$Score.clear()
 	$Score.add_text(str(score))
