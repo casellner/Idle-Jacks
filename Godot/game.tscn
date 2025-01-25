@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dltk7wadcodli"]
+[gd_scene load_steps=8 format=3 uid="uid://dltk7wadcodli"]
 
 [ext_resource type="PackedScene" uid="uid://q54hxsydl8vl" path="res://ball.tscn" id="1_3fcaw"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_mj0j3"]
+[ext_resource type="Texture2D" uid="uid://bx65yr7cnajqw" path="res://sprites/ground.png" id="3_0ancq"]
 [ext_resource type="Texture2D" uid="uid://lhtm352eusx5" path="res://sprites/background.png" id="3_ln215"]
 
 [sub_resource type="Theme" id="Theme_3ls1i"]
@@ -18,6 +19,10 @@ script = ExtResource("1_mj0j3")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(270, 480)
 texture = ExtResource("3_ln215")
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(270, 930)
+texture = ExtResource("3_0ancq")
 
 [node name="Ball" parent="." instance=ExtResource("1_3fcaw")]
 position = Vector2(270, 300)
