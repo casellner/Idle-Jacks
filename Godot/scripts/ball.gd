@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if jump:
 		jump = false # make jump command false
 		velocity.y = BOUNCE_VELOCITY # give ball upward velocity
-		$AudioStreamPlayer2D.play()
+		$AudioStreamPlayer2D.play(randf_range(0.8, 1.2))
 	
 	move_and_slide()
 
