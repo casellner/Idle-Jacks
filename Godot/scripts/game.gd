@@ -51,7 +51,8 @@ func score_jack():
 	$Score.clear()
 	$Score.add_text(str(score))
 	
-	$AudioStreamPlayer2D.play(randf_range(0.8, 1.2))
+	$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
+	$AudioStreamPlayer2D.play()
 
 
 # Function: _on_ball_ball_clicked()
