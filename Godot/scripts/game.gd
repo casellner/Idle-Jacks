@@ -51,6 +51,7 @@ func score_jack():
 	$Score.clear()
 	$Score.add_text(str(score))
 	
+	$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
 	$AudioStreamPlayer2D.play()
 
 
