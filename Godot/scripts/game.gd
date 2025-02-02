@@ -61,3 +61,13 @@ func _on_ball_ball_clicked() -> void:
 	if $Ball.is_on_floor():
 		$Ball.jump = true # tell ball to jump
 		spawn_jack() #spawn a jack
+
+# Function: _on_upgrades_menu_upgrades_menu_close()
+# Purpose:  This function is called when the upgrades_menu scene emits "upgrades_menu_close"
+#           
+func _on_upgrades_menu_upgrades_menu_close() -> void:
+	$"Upgrades Menu".hide()
+
+
+func _on_upgrades_button_pressed() -> void:
+	$"Upgrades Menu".show()
