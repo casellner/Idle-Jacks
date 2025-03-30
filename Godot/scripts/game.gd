@@ -7,6 +7,8 @@ var jack_instance
 
 var score = 0 # Number of jacks collected
 
+var num_jacks = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rand.randomize()
@@ -68,6 +70,10 @@ func _on_ball_ball_clicked() -> void:
 func _on_upgrades_menu_upgrades_menu_close() -> void:
 	$"Upgrades Menu".hide()
 
+func _on_upgrades_menu_add_jack() -> void:
+	print("Here")
+	num_jacks += 1
+	print(num_jacks)
 
 func _on_upgrades_button_pressed() -> void:
 	$"Upgrades Menu".show()
