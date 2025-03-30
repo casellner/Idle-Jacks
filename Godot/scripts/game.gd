@@ -3,7 +3,7 @@ extends Node2D
 var mynode = preload("res://jack.tscn") # for spawning jacks
 
 var rand = RandomNumberGenerator.new() # Random number for Jack position
-var jack_instance
+var jack_instances = []
 
 var score = 0 # Number of jacks collected
 
@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 	# if ball is on the ground
 	if $Ball.is_on_floor():
 		# delete any jacks
-		if jack_instance:
-			jack_instance.queue_free()
-			jack_instance = null
+		for instance in jack_instances:
+			if instance:
+				instance.queue_free()
 
 	# Debugging code to bounce ball by pressing space bar
 	#	# if ball is clicked
@@ -33,20 +33,21 @@ func _process(delta: float) -> void:
 # Function: spawn_jack()
 # Purpose:  This function instantiates a jack and gives it a random position
 func spawn_jack():
-	var x = rand.randf_range(90, 450) # 540 - 90
-	var y = rand.randf_range(90, 870) # 960 - 90
-	
-	jack_instance = mynode.instantiate()
-	jack_instance.position = Vector2(x, y) # set random position
-	jack_instance.rotation = randf_range(0, 2 * PI) #set random rotation
-	add_child(jack_instance)
-	jack_instance.connect("jack_clicked", Callable(self, "score_jack"))
+	for n in num_jacks:
+		var x = rand.randf_range(90, 450) # 540 - 90
+		var y = rand.randf_range(90, 870) # 960 - 90
+		
+		var jack_instance = mynode.instantiate()
+		jack_instance.position = Vector2(x, y) # set random position
+		jack_instance.rotation = randf_range(0, 2 * PI) #set random rotation
+		add_child(jack_instance)
+		jack_instance.connect("jack_clicked", Callable(self, "score_jack"))
+		jack_instances.append(jack_instance)
 	
 
 # Function: score_jack()
 # Purpose:  This function updates the score and plays the 'jack collected' audio
 func score_jack():
-	jack_instance = null # Prevents game from crashing
 	score += 1
 	
 	# update text label
@@ -71,7 +72,6 @@ func _on_upgrades_menu_upgrades_menu_close() -> void:
 	$"Upgrades Menu".hide()
 
 func _on_upgrades_menu_add_jack() -> void:
-	print("Here")
 	num_jacks += 1
 	print(num_jacks)
 
