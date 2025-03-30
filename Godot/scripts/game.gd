@@ -48,11 +48,7 @@ func spawn_jack():
 # Function: score_jack()
 # Purpose:  This function updates the score and plays the 'jack collected' audio
 func score_jack():
-	score += 1
-	
-	# update text label
-	$Score.clear()
-	$Score.add_text(str(score))
+	update_score(1) # add 1 to score
 	
 	$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
 	$AudioStreamPlayer2D.play()
@@ -72,7 +68,16 @@ func _on_upgrades_menu_upgrades_menu_close() -> void:
 	$"Upgrades Menu".hide()
 
 func _on_upgrades_menu_add_jack() -> void:
-	num_jacks += 1
+	if (score >= 5):
+		update_score(-5)
+		num_jacks += 1
 
 func _on_upgrades_button_pressed() -> void:
 	$"Upgrades Menu".show()
+
+func update_score(points: int):
+	score += points
+	
+	# update text label
+	$Score.clear()
+	$Score.add_text(str(score))
