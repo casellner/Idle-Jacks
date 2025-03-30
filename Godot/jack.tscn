@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dehbd8ajqgwqh"]
 
-[ext_resource type="Script" path="res://scripts/jack.gd" id="1_qfnvt"]
+[ext_resource type="Script" uid="uid://vfelqsn1kwwm" path="res://scripts/jack.gd" id="1_qfnvt"]
 [ext_resource type="Texture2D" uid="uid://cdxs87fuylvd4" path="res://sprites/jack.png" id="2_6iq52"]
 [ext_resource type="Texture2D" uid="uid://dnrp6pqpbqfos" path="res://sprites/jack90.png" id="3_w8qd7"]
-[ext_resource type="Script" path="res://jack_button.gd" id="4_n5amt"]
+[ext_resource type="Script" uid="uid://casmaqh6ucvgu" path="res://jack_button.gd" id="4_n5amt"]
 
 [node name="Jack" type="Node2D"]
 script = ExtResource("1_qfnvt")
