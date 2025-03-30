@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://lhtm352eusx5" path="res://sprites/background.png" id="3_ln215"]
 [ext_resource type="Texture2D" uid="uid://q0xf30xjme4o" path="res://sprites/shadow.png" id="4_rk1m2"]
 [ext_resource type="AudioStream" uid="uid://belr237ttqwlf" path="res://audio/jack.mp3" id="5_whfy3"]
-[ext_resource type="PackedScene" uid="uid://cgi0jne2bpvrp" path="res://upgrades_menu.tscn" id="6_1husg"]
+[ext_resource type="PackedScene" path="res://upgrades_menu.tscn" id="6_1husg"]
 
 [sub_resource type="Theme" id="Theme_ql8bq"]
 default_font_size = 30
