@@ -59,6 +59,10 @@ stream = ExtResource("5_whfy3")
 
 [node name="Upgrades Menu" parent="." instance=ExtResource("6_1husg")]
 visible = false
+offset_left = 359.0
+offset_top = 35.0
+offset_right = 359.0
+offset_bottom = 35.0
 
 [node name="UpgradesButton" type="Button" parent="."]
 offset_left = 458.0

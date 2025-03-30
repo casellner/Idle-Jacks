@@ -25,7 +25,7 @@ text = "Close Upgrades Menu"
 
 [node name="Add Jack" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Add Jack"
+text = "Add Jack (cost 5 score)"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Add Jack" to="." method="_on_add_jack_pressed"]
