@@ -73,7 +73,6 @@ func _on_upgrades_menu_upgrades_menu_close() -> void:
 
 func _on_upgrades_menu_add_jack() -> void:
 	num_jacks += 1
-	print(num_jacks)
 
 func _on_upgrades_button_pressed() -> void:
 	$"Upgrades Menu".show()

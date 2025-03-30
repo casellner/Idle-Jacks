@@ -19,4 +19,3 @@ func _on_close_pressed() -> void:
 
 func _on_add_jack_pressed() -> void:
 	emit_signal("add_jack")
-	print("in jack_pressed function")
