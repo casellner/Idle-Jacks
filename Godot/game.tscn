@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dltk7wadcodli"]
+[gd_scene load_steps=11 format=3 uid="uid://dltk7wadcodli"]
 
 [ext_resource type="PackedScene" uid="uid://q54hxsydl8vl" path="res://ball.tscn" id="1_3fcaw"]
 [ext_resource type="Script" uid="uid://r4g1srrxxfmm" path="res://scripts/game.gd" id="1_mj0j3"]
 [ext_resource type="Texture2D" uid="uid://lhtm352eusx5" path="res://sprites/background.png" id="3_ln215"]
 [ext_resource type="Texture2D" uid="uid://q0xf30xjme4o" path="res://sprites/shadow.png" id="4_rk1m2"]
 [ext_resource type="AudioStream" uid="uid://belr237ttqwlf" path="res://audio/jack.mp3" id="5_whfy3"]
-[ext_resource type="PackedScene" path="res://upgrades_menu.tscn" id="6_1husg"]
+[ext_resource type="PackedScene" uid="uid://cgi0jne2bpvrp" path="res://upgrades_menu.tscn" id="6_1husg"]
+[ext_resource type="AudioStream" uid="uid://bn5i5hikuk3gi" path="res://audio/Bossa Jacks Looping.ogg" id="7_eow3j"]
 
 [sub_resource type="Theme" id="Theme_ql8bq"]
 default_font_size = 30
@@ -70,6 +71,11 @@ offset_top = 4.0
 offset_right = 536.0
 offset_bottom = 32.0
 text = "Upgrades"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eow3j")
+autoplay = true
+parameters/looping = true
 
 [connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]
 [connection signal="add_jack" from="Upgrades Menu" to="." method="_on_upgrades_menu_add_jack"]
