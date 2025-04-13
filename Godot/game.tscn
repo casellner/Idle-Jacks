@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dltk7wadcodli"]
+[gd_scene load_steps=12 format=3 uid="uid://dltk7wadcodli"]
 
 [ext_resource type="PackedScene" uid="uid://q54hxsydl8vl" path="res://ball.tscn" id="1_3fcaw"]
 [ext_resource type="Script" uid="uid://r4g1srrxxfmm" path="res://scripts/game.gd" id="1_mj0j3"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://belr237ttqwlf" path="res://audio/jack.mp3" id="5_whfy3"]
 [ext_resource type="PackedScene" uid="uid://cgi0jne2bpvrp" path="res://upgrades_menu.tscn" id="6_1husg"]
 [ext_resource type="AudioStream" uid="uid://bn5i5hikuk3gi" path="res://audio/Bossa Jacks Looping.ogg" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://cscqgvswj0fhn" path="res://options_menu.tscn" id="7_j5wjh"]
 
 [sub_resource type="Theme" id="Theme_ql8bq"]
 default_font_size = 30
@@ -34,17 +35,19 @@ position = Vector2(270, 300)
 position = Vector2(270, 480)
 
 [node name="Score" type="RichTextLabel" parent="."]
-offset_left = 105.0
-offset_right = 145.0
-offset_bottom = 40.0
+offset_left = 296.0
+offset_top = 2.0
+offset_right = 336.0
+offset_bottom = 42.0
 theme = SubResource("Theme_ql8bq")
 theme_override_colors/default_color = Color(0, 0.0784314, 0.152941, 1)
 text = "0"
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
-offset_left = 10.0
-offset_right = 94.0
-offset_bottom = 40.0
+offset_left = 201.0
+offset_top = 2.0
+offset_right = 285.0
+offset_bottom = 42.0
 theme = SubResource("Theme_v6quk")
 theme_override_colors/default_color = Color(0, 0.0784314, 0.152941, 1)
 text = "Score:"
@@ -59,19 +62,33 @@ shape = SubResource("WorldBoundaryShape2D_ku4j4")
 stream = ExtResource("5_whfy3")
 bus = &"sfx"
 
+[node name="UpgradesButton" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 86.0
+offset_bottom = 35.0
+text = "Upgrades"
+
 [node name="Upgrades Menu" parent="." instance=ExtResource("6_1husg")]
 visible = false
-offset_left = 359.0
-offset_top = 35.0
-offset_right = 359.0
-offset_bottom = 35.0
+offset_left = 10.0
+offset_top = 46.0
+offset_right = 10.0
+offset_bottom = 46.0
 
-[node name="UpgradesButton" type="Button" parent="."]
-offset_left = 458.0
-offset_top = 4.0
-offset_right = 536.0
-offset_bottom = 32.0
-text = "Upgrades"
+[node name="OptionsButton" type="Button" parent="."]
+offset_left = 454.0
+offset_top = 8.0
+offset_right = 532.0
+offset_bottom = 36.0
+text = "Options"
+
+[node name="Options Menu" parent="." instance=ExtResource("7_j5wjh")]
+visible = false
+offset_left = 380.0
+offset_top = 42.0
+offset_right = 380.0
+offset_bottom = 42.0
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_eow3j")
@@ -80,6 +97,8 @@ bus = &"music"
 parameters/looping = true
 
 [connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]
+[connection signal="pressed" from="UpgradesButton" to="." method="_on_upgrades_button_pressed"]
 [connection signal="add_jack" from="Upgrades Menu" to="." method="_on_upgrades_menu_add_jack"]
 [connection signal="upgrades_menu_close" from="Upgrades Menu" to="." method="_on_upgrades_menu_upgrades_menu_close"]
-[connection signal="pressed" from="UpgradesButton" to="." method="_on_upgrades_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="options_menu_close" from="Options Menu" to="." method="_on_options_menu_options_menu_close"]

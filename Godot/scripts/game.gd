@@ -72,8 +72,14 @@ func _on_upgrades_menu_add_jack() -> void:
 		update_score(-5)
 		num_jacks += 1
 
+func _on_options_menu_options_menu_close() -> void:
+	$"Options Menu".hide()
+
 func _on_upgrades_button_pressed() -> void:
 	$"Upgrades Menu".show()
+
+func _on_options_button_pressed() -> void:
+	$"Options Menu".show()
 
 func update_score(points: int):
 	score += points
