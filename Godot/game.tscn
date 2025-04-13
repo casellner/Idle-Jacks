@@ -57,6 +57,7 @@ shape = SubResource("WorldBoundaryShape2D_ku4j4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_whfy3")
+bus = &"sfx"
 
 [node name="Upgrades Menu" parent="." instance=ExtResource("6_1husg")]
 visible = false
@@ -75,6 +76,7 @@ text = "Upgrades"
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_eow3j")
 autoplay = true
+bus = &"music"
 parameters/looping = true
 
 [connection signal="ball_clicked" from="Ball" to="." method="_on_ball_ball_clicked"]
